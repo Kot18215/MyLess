@@ -1,0 +1,82 @@
+@color-orange: #ff9900;
+@color-orange_darker: darken(spin(@color-orange, -5), 10%);
+@color-grey_light: #cccccc;
+@color-black_dark: #333333;
+@color-black_medium: #454545;
+@main_tab_radius: 6px;
+@second_tab_radius: 3px;
+@my_button_radius: 6px;
+
+body{
+	background: @color-orange;
+	color: @color-black_dark;
+}
+
+a{
+	color: @color-orange;
+}
+
+p{
+	color: @color-black_dark
+}
+
+.rounded_top(@radius){
+	-webkit-border-top-left-radius: @radius;
+	-webkit-border-top-right-radius: @radius;
+	-moz-border-radius-topleft: @radius;
+	-moz-border-radius-topright: @radius;
+	border-top-left-radius: @radius;
+	border-top-right-radius: @radius;
+}
+
+.rounded_all(@radius){
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+
+.my_button(@radius:3px, @background: @color-orange, @padding: 4px){
+	.rounded_all(@radius);
+	background: @background;
+	border: 1px solid @background - #222;
+	padding: @padding;
+}
+
+.read_more{
+	.my_button(@my_button_radius);
+}
+
+.tab{
+	background: @color-grey_light;
+	.rounded_top(@main_tab_radius);
+}
+
+div.mydiv2{
+	p{
+		color: @color-orange;
+	}
+	.read_more{
+		.my_button(@my_button_radius, @color-orange_darker);
+	}
+}
+
+div.mydiv3{
+	p{
+		.rounded_all(@second_tab_radius);
+		background: @color-black_dark;
+		color: @color-grey_light;
+	}
+	
+}
+
+.mydiv3{
+}
+
+.mydiv{
+	.tab;
+}
+
+.mydiv2{
+	.rounded_top(@second_tab_radius);
+	background: @color-black_medium;
+}
